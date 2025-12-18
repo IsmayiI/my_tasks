@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_tasks/routes/routes.dart';
-import 'package:my_tasks/utils/size_config.dart';
+import 'package:my_tasks/utils/utils.dart';
 
 import '../widgets/widgets.dart';
 
@@ -40,20 +40,20 @@ class _SignInScreenState extends ConsumerState<RegisterScreen> {
             child: Column(
               children: [
                 AuthTitle('Create your account'),
-                SizedBox(height: SizeConfig.height(25)),
+                AppSpacer.vertical(25),
                 AuthTextField(
                   controller: _emailController,
                   hintText: 'Enter email...',
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: SizeConfig.height(10)),
+                AppSpacer.vertical(10),
                 AuthTextField(
                   controller: _passwordController,
                   hintText: 'Enter email...',
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                 ),
-                SizedBox(height: SizeConfig.height(15)),
+                AppSpacer.vertical(15),
                 AuthCheckbox(
                   isChecked: _isChecked,
                   onChanged: (value) {
@@ -62,9 +62,9 @@ class _SignInScreenState extends ConsumerState<RegisterScreen> {
                     });
                   },
                 ),
-                SizedBox(height: SizeConfig.height(25)),
+                AppSpacer.vertical(25),
                 AuthButton(text: 'Register', onPressed: () {}),
-                SizedBox(height: SizeConfig.height(10)),
+                AppSpacer.vertical(10),
                 AuthRedirectText(
                   text: 'Already have an account?',
                   redirectText: 'Sign in',
