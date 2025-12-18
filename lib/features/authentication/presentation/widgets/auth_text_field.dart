@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_tasks/utils/app_styles.dart';
+import 'package:my_tasks/utils/app_text_style.dart';
 
-class CommonTextField extends StatelessWidget {
+class AuthTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
 
-  const CommonTextField({
+  const AuthTextField({
     super.key,
     required this.keyboardType,
     required this.controller,
@@ -28,7 +28,7 @@ class CommonTextField extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: AppStyles.normalTextStyle,
+        hintStyle: AppTextStyle.normal,
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         border: border,
         enabledBorder: border,
