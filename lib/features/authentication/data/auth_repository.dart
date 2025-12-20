@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:my_tasks/routes/routes.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository.g.dart';
@@ -31,7 +32,8 @@ class AuthRepository {
 
 @Riverpod(keepAlive: true)
 AuthRepository authRepository(Ref ref) {
-  return AuthRepository(FirebaseAuth.instance);
+  final firebaseAuth = ref.watch(firebaseAuthProvider);
+  return AuthRepository(firebaseAuth);
 }
 
 @Riverpod(keepAlive: true)

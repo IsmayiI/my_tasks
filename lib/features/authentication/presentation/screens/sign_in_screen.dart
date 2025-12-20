@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_tasks/common_widgets/async_value_ui.dart';
+import 'package:my_tasks/features/authentication/presentation/controllers/auth_controller.dart';
 import 'package:my_tasks/routes/routes.dart';
 import 'package:my_tasks/utils/utils.dart';
 
@@ -18,15 +20,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   bool _isChecked = false;
 
   @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+
+    final state = ref.watch(authControllerProvider);
+
+    ref.listen(authControllerProvider, (previous, next) {
+      next.showDialogOnError(context);
+    });
 
     return Scaffold(
       body: SafeArea(
@@ -63,7 +64,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   },
                 ),
                 AppSpacer.vertical(25),
-                AuthButton(text: 'Sign in', onPressed: () {}),
+                AuthButton(
+                  text: 'Sign in',
+                  onPressed: signIn,
+                  isLoading: state.isLoading,
+                ),
                 AppSpacer.vertical(10),
                 AuthRedirectText(
                   text: "Don't have an account?",
@@ -76,5 +81,35 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         ),
       ),
     );
+  }
+
+  void signIn() {
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          content: Text(
+            'Please enter email and password',
+            style: AppTextStyle.normal.copyWith(color: Colors.white),
+          ),
+
+          duration: Duration(seconds: 2),
+        ),
+      );
+    } else {
+      ref
+          .read(authControllerProvider.notifier)
+          .signIn(email: email, password: password);
+    }
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }

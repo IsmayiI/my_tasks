@@ -21,7 +21,7 @@ final class FirebaseAuthProvider
         argument: null,
         retry: null,
         name: r'firebaseAuthProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -48,7 +48,7 @@ final class FirebaseAuthProvider
   }
 }
 
-String _$firebaseAuthHash() => r'8f84097cccd00af817397c1715c5f537399ba780';
+String _$firebaseAuthHash() => r'8c3e9d11b27110ca96130356b5ef4d5d34a5ffc2';
 
 @ProviderFor(goRouter)
 const goRouterProvider = GoRouterProvider._();
@@ -62,7 +62,7 @@ final class GoRouterProvider
         argument: null,
         retry: null,
         name: r'goRouterProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -89,4 +89,4 @@ final class GoRouterProvider
   }
 }
 
-String _$goRouterHash() => r'c6a681be7703f86e16e86fc2f1c7ce71cea16970';
+String _$goRouterHash() => r'868f911cad5902b6bc6fda6bd319cd82f0982c24';

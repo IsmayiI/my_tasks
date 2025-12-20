@@ -10,21 +10,22 @@ part 'routes.g.dart';
 
 enum AppRoutes { main, register, signIn }
 
-@riverpod
+@Riverpod(keepAlive: true)
 FirebaseAuth firebaseAuth(Ref ref) => FirebaseAuth.instance;
 
-@riverpod
+@Riverpod(keepAlive: true)
 GoRouter goRouter(Ref ref) {
   final firebaseAuth = ref.watch(firebaseAuthProvider);
 
   return GoRouter(
-    initialLocation: '/main',
+    initialLocation: '/signIn',
     debugLogDiagnostics: true,
     redirect: (context, state) {
       final isLoggedIn = firebaseAuth.currentUser != null;
 
       if (isLoggedIn &&
-          (state.matchedLocation == '/signIn' || state.name == '/register')) {
+          (state.matchedLocation == '/signIn' ||
+              state.matchedLocation == '/register')) {
         return '/main';
       }
 
