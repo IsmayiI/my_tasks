@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_tasks/features/authentication/data/auth_repository.dart';
 import 'package:my_tasks/features/authentication/presentation/screens/register_screen.dart';
 import 'package:my_tasks/features/authentication/presentation/screens/sign_in_screen.dart';
 import 'package:my_tasks/features/task_management/presentation/screens/main_screen.dart';
@@ -9,9 +9,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'routes.g.dart';
 
 enum AppRoutes { main, register, signIn }
-
-@Riverpod(keepAlive: true)
-FirebaseAuth firebaseAuth(Ref ref) => FirebaseAuth.instance;
 
 @Riverpod(keepAlive: true)
 GoRouter goRouter(Ref ref) {

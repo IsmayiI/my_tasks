@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:my_tasks/routes/routes.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository.g.dart';
@@ -29,6 +28,9 @@ class AuthRepository {
 
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 }
+
+@Riverpod(keepAlive: true)
+FirebaseAuth firebaseAuth(Ref ref) => FirebaseAuth.instance;
 
 @Riverpod(keepAlive: true)
 AuthRepository authRepository(Ref ref) {
