@@ -1,45 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_tasks/features/authentication/presentation/screens/accounts_screen.dart';
+import 'package:go_router/go_router.dart';
 
-import 'screens.dart';
-
-class MainScreen extends ConsumerStatefulWidget {
-  const MainScreen({super.key});
-
-  @override
-  ConsumerState<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends ConsumerState<MainScreen>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-  int currentIndex = 0;
+class MainScreen extends ConsumerWidget {
+  final StatefulNavigationShell navigationShell;
+  const MainScreen({super.key, required this.navigationShell});
 
   @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 5, vsync: this);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    _tabController.index = currentIndex;
-
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: TabBarView(
-        controller: _tabController,
-        children: const [
-          AllTaskScreen(),
-          InCompleteTasksScreen(),
-          AddTaskScreen(),
-          CompletedTasksScreen(),
-          AccountsScreen(),
-        ],
-      ),
+      body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (value) => setState(() => currentIndex = value),
+        currentIndex: navigationShell.currentIndex,
+        onTap: (index) => navigationShell.goBranch(index),
         iconSize: 20,
         elevation: 5,
         type: BottomNavigationBarType.fixed,
@@ -72,11 +45,5 @@ class _MainScreenState extends ConsumerState<MainScreen>
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
   }
 }
