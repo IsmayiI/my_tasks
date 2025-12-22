@@ -14,6 +14,15 @@ class _AddTaskScreenState extends ConsumerState<AddTaskScreen> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
 
+  final _priorities = const ['Low', 'Medium', 'High'];
+  int _selectedPriority = 0;
+
+  void getSelectedPriority(int index) {
+    setState(() {
+      _selectedPriority = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +46,12 @@ class _AddTaskScreenState extends ConsumerState<AddTaskScreen> {
               label: 'Task Description',
               hintText: 'Enter Task Description',
               controller: _descriptionController,
+            ),
+            AppSpacer.vertical(20),
+            AddTaskPriority(
+              priorities: _priorities,
+              selectedPriority: _selectedPriority,
+              onTap: getSelectedPriority,
             ),
           ],
         ),
