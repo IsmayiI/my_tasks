@@ -9,7 +9,28 @@ class StoreRepository {
 
   const StoreRepository(this._store);
 
-  Future<void> addTask({required Task task, required String userId}) async {}
+  Future<void> addTask({required Task task, required String userId}) async {
+    final docRef = await _store
+        .collection('users')
+        .doc(userId)
+        .collection('tasks')
+        .add(task.toJson());
+
+    await docRef.update({'id': docRef.id});
+  }
+
+  Future<void> updateTask({
+    required Task task,
+    required String taskId,
+    required String userId,
+  }) async {
+    await _store
+        .collection('users')
+        .doc(userId)
+        .collection('tasks')
+        .doc(taskId)
+        .update(task.toJson());
+  }
 }
 
 @Riverpod(keepAlive: true)

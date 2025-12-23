@@ -17,6 +17,7 @@ dependencies:
   go_router: ^17.0.1
   google_fonts: ^6.3.3
   intl: ^0.20.2
+  json_annotation: ^4.9.0
   riverpod_annotation: ^3.0.3
 
 dev_dependencies:
@@ -28,6 +29,7 @@ dev_dependencies:
   custom_lint: ^0.8.1
   riverpod_lint: ^3.0.3
   freezed: ^3.2.3
+  json_serializable: ^6.11.2
 
 flutter:
   uses-material-design: true

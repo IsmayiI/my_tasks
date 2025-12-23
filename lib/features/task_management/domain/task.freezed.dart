@@ -11,6 +11,7 @@ part of 'task.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$Task {
 
@@ -21,6 +22,8 @@ mixin _$Task {
 @pragma('vm:prefer-inline')
 $TaskCopyWith<Task> get copyWith => _$TaskCopyWithImpl<Task>(this as Task, _$identity);
 
+  /// Serializes this Task to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -28,7 +31,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.date, date) || other.date == date)&&(identical(other.isComlete, isComlete) || other.isComlete == isComlete));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,title,description,priority,date,isComlete);
 
@@ -208,11 +211,11 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.date
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _Task implements Task {
   const _Task({required this.id, required this.title, required this.description, required this.priority, required this.date, required this.isComlete});
-  
+  factory _Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
 
 @override final  String id;
 @override final  String title;
@@ -227,14 +230,17 @@ class _Task implements Task {
 @pragma('vm:prefer-inline')
 _$TaskCopyWith<_Task> get copyWith => __$TaskCopyWithImpl<_Task>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$TaskToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.date, date) || other.date == date)&&(identical(other.isComlete, isComlete) || other.isComlete == isComlete));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,id,title,description,priority,date,isComlete);
 
