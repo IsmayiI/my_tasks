@@ -21,8 +21,6 @@ class _SignInScreenState extends ConsumerState<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
-
     final state = ref.watch(authControllerProvider);
 
     ref.listen(authControllerProvider, (previous, next) {
