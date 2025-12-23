@@ -53,6 +53,8 @@ class _AddTaskScreenState extends ConsumerState<AddTaskScreen> {
               selectedPriority: _selectedPriority,
               onTap: getSelectedPriority,
             ),
+            AppSpacer.vertical(20),
+            AddTaskButton(onPressed: () {}),
           ],
         ),
       ),
