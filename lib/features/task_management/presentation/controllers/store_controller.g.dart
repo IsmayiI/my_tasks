@@ -33,7 +33,7 @@ final class StoreControllerProvider
   StoreController create() => StoreController();
 }
 
-String _$storeControllerHash() => r'4de2e68926964db8847a71114b165c4f47a92b8f';
+String _$storeControllerHash() => r'9435e09f2a30a40214a24253fa49e0d27770aeb1';
 
 abstract class _$StoreController extends $AsyncNotifier<dynamic> {
   FutureOr<dynamic> build();

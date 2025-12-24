@@ -214,15 +214,15 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.date
 @JsonSerializable()
 
 class _Task implements Task {
-  const _Task({required this.id, required this.title, required this.description, required this.priority, required this.date, required this.isComlete});
+  const _Task({this.id = '', required this.title, required this.description, required this.priority, required this.date, this.isComlete = false});
   factory _Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
 
-@override final  String id;
+@override@JsonKey() final  String id;
 @override final  String title;
 @override final  String description;
 @override final  String priority;
 @override final  String date;
-@override final  bool isComlete;
+@override@JsonKey() final  bool isComlete;
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.

@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_tasks/features/task_management/data/store_repository.dart';
 import 'package:my_tasks/features/task_management/domain/task.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -6,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'store_controller.g.dart';
 
 @Riverpod(keepAlive: true)
-class StoreController extends AsyncNotifier {
+class StoreController extends _$StoreController {
   @override
   FutureOr<dynamic> build() {
     throw UnimplementedError();

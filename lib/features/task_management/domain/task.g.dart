@@ -7,12 +7,12 @@ part of 'task.dart';
 // **************************************************************************
 
 _Task _$TaskFromJson(Map<String, dynamic> json) => _Task(
-  id: json['id'] as String,
+  id: json['id'] as String? ?? '',
   title: json['title'] as String,
   description: json['description'] as String,
   priority: json['priority'] as String,
   date: json['date'] as String,
-  isComlete: json['isComlete'] as bool,
+  isComlete: json['isComlete'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$TaskToJson(_Task instance) => <String, dynamic>{
