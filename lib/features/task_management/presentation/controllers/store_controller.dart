@@ -31,6 +31,22 @@ class StoreController extends _$StoreController {
     );
   }
 
+  Future<void> updateTaskCompletion({
+    required bool isComplete,
+    required String taskId,
+    required String userId,
+  }) async {
+    state = const AsyncValue.loading();
+    final store = ref.watch(storeRepositoryProvider);
+    state = await AsyncValue.guard(
+      () => store.updateTaskCompletion(
+        isComplete: isComplete,
+        taskId: taskId,
+        userId: userId,
+      ),
+    );
+  }
+
   Future<void> deleteTask({
     required String taskId,
     required String userId,

@@ -45,7 +45,7 @@ class StoreRepository {
   }
 
   Future<void> updateTaskCompletion({
-    required bool isComlete,
+    required bool isComplete,
     required String taskId,
     required String userId,
   }) async {
@@ -54,7 +54,7 @@ class StoreRepository {
         .doc(userId)
         .collection('tasks')
         .doc(taskId)
-        .update({'isComplete': isComlete});
+        .update({'isComplete': isComplete});
   }
 
   Stream<List<Task>> loadTasks(String userId) {

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Task {
 
- String get id; String get title; String get description; String get priority; String get date; bool get isComlete;
+ String get id; String get title; String get description; String get priority; String get date; bool get isComplete;
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $TaskCopyWith<Task> get copyWith => _$TaskCopyWithImpl<Task>(this as Task, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.date, date) || other.date == date)&&(identical(other.isComlete, isComlete) || other.isComlete == isComlete));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.date, date) || other.date == date)&&(identical(other.isComplete, isComplete) || other.isComplete == isComplete));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,priority,date,isComlete);
+int get hashCode => Object.hash(runtimeType,id,title,description,priority,date,isComplete);
 
 @override
 String toString() {
-  return 'Task(id: $id, title: $title, description: $description, priority: $priority, date: $date, isComlete: $isComlete)';
+  return 'Task(id: $id, title: $title, description: $description, priority: $priority, date: $date, isComplete: $isComplete)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $TaskCopyWith<$Res>  {
   factory $TaskCopyWith(Task value, $Res Function(Task) _then) = _$TaskCopyWithImpl;
 @useResult
 $Res call({
- String id, String title, String description, String priority, String date, bool isComlete
+ String id, String title, String description, String priority, String date, bool isComplete
 });
 
 
@@ -65,14 +65,14 @@ class _$TaskCopyWithImpl<$Res>
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? priority = null,Object? date = null,Object? isComlete = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? priority = null,Object? date = null,Object? isComplete = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as String,isComlete: null == isComlete ? _self.isComlete : isComlete // ignore: cast_nullable_to_non_nullable
+as String,isComplete: null == isComplete ? _self.isComplete : isComplete // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -158,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String priority,  String date,  bool isComlete)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String priority,  String date,  bool isComplete)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Task() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.priority,_that.date,_that.isComlete);case _:
+return $default(_that.id,_that.title,_that.description,_that.priority,_that.date,_that.isComplete);case _:
   return orElse();
 
 }
@@ -179,10 +179,10 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.date
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String priority,  String date,  bool isComlete)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String priority,  String date,  bool isComplete)  $default,) {final _that = this;
 switch (_that) {
 case _Task():
-return $default(_that.id,_that.title,_that.description,_that.priority,_that.date,_that.isComlete);case _:
+return $default(_that.id,_that.title,_that.description,_that.priority,_that.date,_that.isComplete);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +199,10 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.date
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  String priority,  String date,  bool isComlete)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  String priority,  String date,  bool isComplete)?  $default,) {final _that = this;
 switch (_that) {
 case _Task() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.priority,_that.date,_that.isComlete);case _:
+return $default(_that.id,_that.title,_that.description,_that.priority,_that.date,_that.isComplete);case _:
   return null;
 
 }
@@ -214,7 +214,7 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.date
 @JsonSerializable()
 
 class _Task implements Task {
-  const _Task({this.id = '', required this.title, required this.description, required this.priority, required this.date, this.isComlete = false});
+  const _Task({this.id = '', required this.title, required this.description, required this.priority, required this.date, this.isComplete = false});
   factory _Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
 
 @override@JsonKey() final  String id;
@@ -222,7 +222,7 @@ class _Task implements Task {
 @override final  String description;
 @override final  String priority;
 @override final  String date;
-@override@JsonKey() final  bool isComlete;
+@override@JsonKey() final  bool isComplete;
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
@@ -237,16 +237,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.date, date) || other.date == date)&&(identical(other.isComlete, isComlete) || other.isComlete == isComlete));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Task&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.date, date) || other.date == date)&&(identical(other.isComplete, isComplete) || other.isComplete == isComplete));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,priority,date,isComlete);
+int get hashCode => Object.hash(runtimeType,id,title,description,priority,date,isComplete);
 
 @override
 String toString() {
-  return 'Task(id: $id, title: $title, description: $description, priority: $priority, date: $date, isComlete: $isComlete)';
+  return 'Task(id: $id, title: $title, description: $description, priority: $priority, date: $date, isComplete: $isComplete)';
 }
 
 
@@ -257,7 +257,7 @@ abstract mixin class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   factory _$TaskCopyWith(_Task value, $Res Function(_Task) _then) = __$TaskCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String title, String description, String priority, String date, bool isComlete
+ String id, String title, String description, String priority, String date, bool isComplete
 });
 
 
@@ -274,14 +274,14 @@ class __$TaskCopyWithImpl<$Res>
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? priority = null,Object? date = null,Object? isComlete = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? priority = null,Object? date = null,Object? isComplete = null,}) {
   return _then(_Task(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as String,isComlete: null == isComlete ? _self.isComlete : isComlete // ignore: cast_nullable_to_non_nullable
+as String,isComplete: null == isComplete ? _self.isComplete : isComplete // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }

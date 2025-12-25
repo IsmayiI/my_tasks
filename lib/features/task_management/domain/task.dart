@@ -11,7 +11,7 @@ abstract class Task with _$Task {
     required String description,
     required String priority,
     required String date,
-    @Default(false) bool isComlete,
+    @Default(false) bool isComplete,
   }) = _Task;
 
   factory Task.fromJson(Map<String, Object?> json) => _$TaskFromJson(json);
