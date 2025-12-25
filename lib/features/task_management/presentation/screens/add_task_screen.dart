@@ -37,12 +37,7 @@ class _AddTaskScreenState extends ConsumerState<AddTaskScreen> {
     });
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Create Task',
-          style: AppTextStyle.title.copyWith(color: Colors.white),
-        ),
-      ),
+      appBar: commonAppBar('Create Task'),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
