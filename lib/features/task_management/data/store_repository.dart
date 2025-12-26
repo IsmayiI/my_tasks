@@ -19,16 +19,12 @@ class StoreRepository {
     await docRef.update({'id': docRef.id});
   }
 
-  Future<void> updateTask({
-    required Task task,
-    required String taskId,
-    required String userId,
-  }) async {
+  Future<void> updateTask({required Task task, required String userId}) async {
     await _store
         .collection('users')
         .doc(userId)
         .collection('tasks')
-        .doc(taskId)
+        .doc(task.id)
         .update(task.toJson());
   }
 

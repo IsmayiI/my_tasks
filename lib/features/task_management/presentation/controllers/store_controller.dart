@@ -19,15 +19,11 @@ class StoreController extends _$StoreController {
     );
   }
 
-  Future<void> updateTask({
-    required Task task,
-    required String taskId,
-    required String userId,
-  }) async {
+  Future<void> updateTask({required Task task, required String userId}) async {
     state = const AsyncValue.loading();
     final store = ref.watch(storeRepositoryProvider);
     state = await AsyncValue.guard(
-      () => store.updateTask(task: task, taskId: taskId, userId: userId),
+      () => store.updateTask(task: task, userId: userId),
     );
   }
 
