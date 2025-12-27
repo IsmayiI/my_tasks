@@ -5,21 +5,23 @@ import 'package:my_tasks/features/authentication/data/auth_repository.dart';
 import 'package:my_tasks/features/task_management/data/store_repository.dart';
 import 'package:my_tasks/features/task_management/presentation/widgets/widgets.dart';
 
-class AllTaskScreen extends ConsumerWidget {
-  const AllTaskScreen({super.key});
+class InCompleteTasksScreen extends ConsumerWidget {
+  const InCompleteTasksScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = ref.watch(currentUserProvider)!.uid;
-    final tasksAsyncValue = ref.watch(loadTasksProvider(userId));
+    final inCompletedTasksAsyncValue = ref.watch(
+      loadInCompletedTasksProvider(userId),
+    );
 
-    ref.listen(loadTasksProvider(userId), (prev, next) {
+    ref.listen(loadInCompletedTasksProvider(userId), (prev, next) {
       next.showDialogOnError(context);
     });
 
     return Scaffold(
-      appBar: commonAppBar('My Tasks'),
-      body: CommonTasksView(tasksAsyncValue),
+      appBar: commonAppBar('Incomplete Tasks'),
+      body: CommonTasksView(inCompletedTasksAsyncValue),
     );
   }
 }
