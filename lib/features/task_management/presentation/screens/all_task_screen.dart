@@ -11,6 +11,7 @@ class AllTaskScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = ref.watch(currentUserProvider)!.uid;
+
     final tasksAsyncValue = ref.watch(loadTasksProvider(userId));
 
     ref.listen(loadTasksProvider(userId), (prev, next) {

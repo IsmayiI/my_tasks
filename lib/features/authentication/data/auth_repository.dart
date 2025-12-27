@@ -29,22 +29,22 @@ class AuthRepository {
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 FirebaseAuth firebaseAuth(Ref ref) => FirebaseAuth.instance;
 
-@Riverpod(keepAlive: true)
+@riverpod
 AuthRepository authRepository(Ref ref) {
   final firebaseAuth = ref.watch(firebaseAuthProvider);
   return AuthRepository(firebaseAuth);
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 User? currentUser(Ref ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return authRepository.currentUser;
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 Stream<User?> authStateChanges(Ref ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return authRepository.authStateChanges;

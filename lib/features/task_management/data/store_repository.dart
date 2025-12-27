@@ -93,28 +93,28 @@ class StoreRepository {
   }
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 FirebaseFirestore firebaseFirestore(Ref ref) => FirebaseFirestore.instance;
 
-@Riverpod(keepAlive: true)
+@riverpod
 StoreRepository storeRepository(Ref ref) {
   final firebaseFirestore = ref.watch(firebaseFirestoreProvider);
   return StoreRepository(firebaseFirestore);
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 Stream<List<Task>> loadTasks(Ref ref, String userId) {
   final storeRepository = ref.watch(storeRepositoryProvider);
   return storeRepository.loadTasks(userId);
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 Stream<List<Task>> loadCompletedTasks(Ref ref, String userId) {
   final storeRepository = ref.watch(storeRepositoryProvider);
   return storeRepository.loadCompletedTasks(userId);
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 Stream<List<Task>> loadInCompletedTasks(Ref ref, String userId) {
   final storeRepository = ref.watch(storeRepositoryProvider);
   return storeRepository.loadInCompletedTasks(userId);

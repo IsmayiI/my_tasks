@@ -21,7 +21,7 @@ final class FirebaseAuthProvider
         argument: null,
         retry: null,
         name: r'firebaseAuthProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -48,7 +48,7 @@ final class FirebaseAuthProvider
   }
 }
 
-String _$firebaseAuthHash() => r'8c3e9d11b27110ca96130356b5ef4d5d34a5ffc2';
+String _$firebaseAuthHash() => r'8f84097cccd00af817397c1715c5f537399ba780';
 
 @ProviderFor(authRepository)
 const authRepositoryProvider = AuthRepositoryProvider._();
@@ -62,7 +62,7 @@ final class AuthRepositoryProvider
         argument: null,
         retry: null,
         name: r'authRepositoryProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -89,7 +89,7 @@ final class AuthRepositoryProvider
   }
 }
 
-String _$authRepositoryHash() => r'35b8133b0571520f2f1b484fa638b602e9ef774b';
+String _$authRepositoryHash() => r'bb98dbe61556e535e18ca416c705faa49af78d3e';
 
 @ProviderFor(currentUser)
 const currentUserProvider = CurrentUserProvider._();
@@ -102,7 +102,7 @@ final class CurrentUserProvider extends $FunctionalProvider<User?, User?, User?>
         argument: null,
         retry: null,
         name: r'currentUserProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -129,7 +129,7 @@ final class CurrentUserProvider extends $FunctionalProvider<User?, User?, User?>
   }
 }
 
-String _$currentUserHash() => r'b367f58b96bb951a08bf3875efc474d0fcada754';
+String _$currentUserHash() => r'111e6d786dc20b47d053faef10792cde2a6bf709';
 
 @ProviderFor(authStateChanges)
 const authStateChangesProvider = AuthStateChangesProvider._();
@@ -143,7 +143,7 @@ final class AuthStateChangesProvider
         argument: null,
         retry: null,
         name: r'authStateChangesProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -162,4 +162,4 @@ final class AuthStateChangesProvider
   }
 }
 
-String _$authStateChangesHash() => r'07a4821d7122bc94c39031eb5d0909d6cb6bdba3';
+String _$authStateChangesHash() => r'09fd9cb6662c666f3d8960bc91c75e7a7b90a0da';

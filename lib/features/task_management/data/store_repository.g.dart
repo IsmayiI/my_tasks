@@ -26,7 +26,7 @@ final class FirebaseFirestoreProvider
         argument: null,
         retry: null,
         name: r'firebaseFirestoreProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -54,7 +54,7 @@ final class FirebaseFirestoreProvider
   }
 }
 
-String _$firebaseFirestoreHash() => r'211c9d7cd91051da8adfacbf85a09b8bad1d41e8';
+String _$firebaseFirestoreHash() => r'eca974fdc891fcd3f9586742678f47582b20adec';
 
 @ProviderFor(storeRepository)
 const storeRepositoryProvider = StoreRepositoryProvider._();
@@ -69,7 +69,7 @@ final class StoreRepositoryProvider
         argument: null,
         retry: null,
         name: r'storeRepositoryProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -96,7 +96,7 @@ final class StoreRepositoryProvider
   }
 }
 
-String _$storeRepositoryHash() => r'2b19030b6e56396bfe70c64858e3e7d0d4d52fb8';
+String _$storeRepositoryHash() => r'e42e197e8b0ae30aec2c38e78fbf93b797d02caf';
 
 @ProviderFor(loadTasks)
 const loadTasksProvider = LoadTasksFamily._();
@@ -115,7 +115,7 @@ final class LoadTasksProvider
   }) : super(
          retry: null,
          name: r'loadTasksProvider',
-         isAutoDispose: false,
+         isAutoDispose: true,
          dependencies: null,
          $allTransitiveDependencies: null,
        );
@@ -152,7 +152,7 @@ final class LoadTasksProvider
   }
 }
 
-String _$loadTasksHash() => r'457fd2313258a1b2a4bfd725851a7477b397b107';
+String _$loadTasksHash() => r'19250c2fc5a15475ad2cf1433e81de64096519d6';
 
 final class LoadTasksFamily extends $Family
     with $FunctionalFamilyOverride<Stream<List<Task>>, String> {
@@ -162,7 +162,7 @@ final class LoadTasksFamily extends $Family
         name: r'loadTasksProvider',
         dependencies: null,
         $allTransitiveDependencies: null,
-        isAutoDispose: false,
+        isAutoDispose: true,
       );
 
   LoadTasksProvider call(String userId) =>
@@ -189,7 +189,7 @@ final class LoadCompletedTasksProvider
   }) : super(
          retry: null,
          name: r'loadCompletedTasksProvider',
-         isAutoDispose: false,
+         isAutoDispose: true,
          dependencies: null,
          $allTransitiveDependencies: null,
        );
@@ -227,7 +227,7 @@ final class LoadCompletedTasksProvider
 }
 
 String _$loadCompletedTasksHash() =>
-    r'f3948479f322f942d9ee27c0870c96a22166116f';
+    r'5b968b582da525bd16a9f5a87e740e413fede48f';
 
 final class LoadCompletedTasksFamily extends $Family
     with $FunctionalFamilyOverride<Stream<List<Task>>, String> {
@@ -237,7 +237,7 @@ final class LoadCompletedTasksFamily extends $Family
         name: r'loadCompletedTasksProvider',
         dependencies: null,
         $allTransitiveDependencies: null,
-        isAutoDispose: false,
+        isAutoDispose: true,
       );
 
   LoadCompletedTasksProvider call(String userId) =>
@@ -264,7 +264,7 @@ final class LoadInCompletedTasksProvider
   }) : super(
          retry: null,
          name: r'loadInCompletedTasksProvider',
-         isAutoDispose: false,
+         isAutoDispose: true,
          dependencies: null,
          $allTransitiveDependencies: null,
        );
@@ -302,7 +302,7 @@ final class LoadInCompletedTasksProvider
 }
 
 String _$loadInCompletedTasksHash() =>
-    r'258a49e5585853fea5e79e03f876f898388b59fc';
+    r'4420be45c41e0b33e8225f952a6c76bf0e83e832';
 
 final class LoadInCompletedTasksFamily extends $Family
     with $FunctionalFamilyOverride<Stream<List<Task>>, String> {
@@ -312,7 +312,7 @@ final class LoadInCompletedTasksFamily extends $Family
         name: r'loadInCompletedTasksProvider',
         dependencies: null,
         $allTransitiveDependencies: null,
-        isAutoDispose: false,
+        isAutoDispose: true,
       );
 
   LoadInCompletedTasksProvider call(String userId) =>

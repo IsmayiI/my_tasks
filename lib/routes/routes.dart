@@ -27,7 +27,7 @@ GoRouter goRouter(Ref ref) {
         return '/main';
       }
 
-      if (!isLoggedIn && state.matchedLocation == '/main') {
+      if (!isLoggedIn && state.matchedLocation == '/account') {
         return '/signIn';
       }
 
